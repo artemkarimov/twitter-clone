@@ -3,7 +3,7 @@ import { FC } from 'react';
 import classes from './Button.module.scss';
 
 interface Props {
-  flat: boolean;
+  flat?: boolean;
 }
 
 const Button: FC<Props> = props => {

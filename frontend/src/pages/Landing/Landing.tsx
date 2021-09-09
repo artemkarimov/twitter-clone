@@ -8,7 +8,8 @@ const Landing: FC = () => {
     <img src={logo} alt="twitter-logo" />
     <h1>Happening now</h1>
     <h2>Join Twitter today.</h2>
-    <Button flat={true}>Sign up with phone or email</Button>
+    <Button>Sign up</Button>
+    <Button flat={true}>Log in</Button>
   </>;
 };
 

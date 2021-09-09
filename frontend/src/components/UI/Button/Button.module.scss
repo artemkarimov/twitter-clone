@@ -4,15 +4,25 @@
   font: inherit;
   background-color: rgb(86, 201, 255);
   border: 1px solid rgb(86, 201, 255);
-  color: white;
+  color: #FFFFFF;
   cursor: pointer;
   border-radius: 30px;
   margin-right: 0.5rem;
   display: inline-block;
   outline: none;
+
+  &:hover {
+    background-color: #FFFFFF;
+    color: rgb(86, 201, 255);
+  }
 }
 
 .flat {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: rgb(86, 201, 255);
+
+  &:hover {
+    color: #FFFFFF;
+    background-color: rgb(86, 201, 255);
+  }
 }
