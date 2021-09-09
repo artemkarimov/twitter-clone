@@ -1,11 +1,7 @@
 import { FC } from 'react';
 
-import Landing from './Landing/Landing';
-
 const App: FC = () => {
-  return <div>
-    <Landing />
-  </div>;
+  return <div></div>;
 };
 
 export default App;
