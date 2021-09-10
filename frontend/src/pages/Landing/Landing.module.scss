@@ -13,17 +13,26 @@
       margin-top: -20rem;
     }
 
-    ul {
-      position: relative;
-      top: -54rem;
-      left: 12rem;
-      list-style: none;
+    .banner-content {
+      display: flex;
 
-      li {
-        margin: 1rem;
-        color: #FFFFFF;
-        font-size: 1.2rem;
-        font-weight: 700;
+      ul {
+        position: relative;
+        top: -54rem;
+        left: 2rem;
+        list-style: none;
+  
+        li {
+          margin: 1.2rem -1rem;
+          color: #FFFFFF;
+          font-size: 1rem;
+          font-weight: 500;
+  
+          img {
+            height: 2rem;
+            margin-left: 12rem;
+          }
+        }
       }
     }
   }
