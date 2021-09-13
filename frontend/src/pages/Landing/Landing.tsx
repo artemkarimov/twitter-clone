@@ -87,8 +87,8 @@ const Landing: FC = () => {
           See what's happening in <br /> the world right now
         </h1>
         <h2>Join Twitter today.</h2>
-        <Button width="23rem">Sign up</Button>
-        <Button flat={true} width="23rem">
+        <Button width="23rem" link="/register">Sign up</Button>
+        <Button flat={true} width="23rem" link="/login">
           Log in
         </Button>
       </div>
