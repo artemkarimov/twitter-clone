@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Landing from './Landing/Landing';
 import Login from './Login/Login';
-import Register from './Register/Register';
+import Signup from './Signup/Signup';
 
 const App: FC = () => {
   return (
@@ -15,8 +15,8 @@ const App: FC = () => {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/register">
-          <Register />
+        <Route path="/signup">
+          <Signup />
         </Route>
       </Switch>
     </>
