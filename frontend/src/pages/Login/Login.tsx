@@ -1,8 +1,8 @@
 import { FC, useRef } from 'react';
 
-import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
-import logo from '../../assets/logo.svg';
+import Input from 'components/UI/Input/Input';
+import Button from 'components/UI/Button/Button';
+import logo from 'assets/logo.svg';
 import classes from './Login.module.scss';
 
 const Login: FC = () => {
