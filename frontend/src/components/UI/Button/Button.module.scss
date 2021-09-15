@@ -2,8 +2,8 @@
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   font: inherit;
-  background-color: rgb(86, 201, 255);
-  border: 1px solid rgb(86, 201, 255);
+  background-color: rgb(29, 161, 242);
+  border: 1px solid rgb(29, 161, 242);
   color: #FFFFFF;
   cursor: pointer;
   border-radius: 30px;
@@ -14,20 +14,31 @@
 
   &:hover {
     background-color: #FFFFFF;
-    color: rgb(86, 201, 255);
+    color: rgb(29, 161, 242);
   }
 }
 
 .flat {
   background-color: #FFFFFF;
-  color: rgb(86, 201, 255);
+  color: rgb(29, 161, 242);
 
   &:hover {
     color: #FFFFFF;
-    background-color: rgb(86, 201, 255);
+    background-color: rgb(29, 161, 242);
   }
 }
 
 a {
   text-decoration: none;
+}
+
+.no-border {
+  border-width: 0;
+  padding-left: 0;
+  background-color: #FFFFFF;
+  color: rgb(29, 161, 242);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

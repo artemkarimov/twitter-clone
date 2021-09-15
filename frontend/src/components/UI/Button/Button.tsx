@@ -7,18 +7,21 @@ interface Props {
   flat?: boolean;
   width?: string;
   link?: string;
+  noBorder?: boolean;
 }
 
 const Button: FC<Props> = props => {
-  const classNames = [classes.button, props.flat ? classes.flat : ''];
+  const classNames = [
+    classes.button,
+    props.flat ? classes.flat : '',
+    props.noBorder ? classes['no-border'] : '',
+  ];
   const button = (
     <button className={classNames.join(' ')} style={{ width: props.width }}>
       {props.children}
     </button>
   );
-  if (props.link) {
-    return <Link to={props.link}>{button}</Link>;
-  }
+  if (props.link) return <Link to={props.link}>{button}</Link>;
   return <>{button}</>;
 };
 
