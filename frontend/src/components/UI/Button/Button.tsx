@@ -8,6 +8,7 @@ interface Props {
   width?: string;
   link?: string;
   noBorder?: boolean;
+  onClick?: () => void;
 }
 
 const Button: FC<Props> = props => {
@@ -17,7 +18,7 @@ const Button: FC<Props> = props => {
     props.noBorder ? classes['no-border'] : '',
   ];
   const button = (
-    <button className={classNames.join(' ')} style={{ width: props.width }}>
+    <button className={classNames.join(' ')} style={{ width: props.width }} onClick={props.onClick}>
       {props.children}
     </button>
   );
