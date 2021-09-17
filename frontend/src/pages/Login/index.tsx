@@ -1,7 +1,7 @@
 import { FC, useRef } from 'react';
 
-import Input from 'components/UI/Input/Input';
-import Button from 'components/UI/Button/Button';
+import Input from 'components/UI/Input';
+import Button from 'components/UI/Button';
 import logo from 'assets/logo.svg';
 import classes from './Login.module.scss';
 

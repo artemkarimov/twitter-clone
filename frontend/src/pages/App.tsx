@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Landing from './Landing/Landing';
-import Login from './Login/Login';
-import Signup from './Signup/Signup';
+import Landing from './Landing';
+import Login from './Login';
+import Signup from './Signup';
 
 const App: FC = () => {
   return (

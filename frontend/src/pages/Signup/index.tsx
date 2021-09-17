@@ -1,8 +1,8 @@
 import { FC, useState, useRef } from 'react';
 
-import Card from 'components/UI/Card/Card';
-import Input from 'components/UI/Input/Input';
-import Button from 'components/UI/Button/Button';
+import Card from 'components/UI/Card';
+import Input from 'components/UI/Input';
+import Button from 'components/UI/Button';
 import logo from 'assets/logo.svg';
 import classes from './Signup.module.scss';
 

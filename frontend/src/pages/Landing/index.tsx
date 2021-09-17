@@ -5,7 +5,7 @@ import search from 'assets/search.svg';
 import share from 'assets/share.svg';
 import users from 'assets/users.svg';
 import comment from 'assets/comment.svg';
-import Button from 'components/UI/Button/Button';
+import Button from 'components/UI/Button';
 import classes from './Landing.module.scss';
 
 const Landing: FC = () => {
