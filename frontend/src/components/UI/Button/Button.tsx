@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 
 import classes from './Button.module.scss';
 
+type ButtonType = 'button' | 'submit' | 'reset';
+
 interface Props {
+  type?: ButtonType;
   flat?: boolean;
   width?: string;
   link?: string;
   noBorder?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -18,7 +22,13 @@ const Button: FC<Props> = props => {
     props.noBorder ? classes['no-border'] : '',
   ];
   const button = (
-    <button className={classNames.join(' ')} style={{ width: props.width }} onClick={props.onClick}>
+    <button
+      type={props.type}
+      className={classNames.join(' ')}
+      style={{ width: props.width }}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
       {props.children}
     </button>
   );

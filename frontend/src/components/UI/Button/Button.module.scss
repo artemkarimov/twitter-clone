@@ -12,9 +12,17 @@
   display: block;
   outline: none;
 
-  &:hover {
+  &:hover:not([disabled]) {
     background-color: #FFFFFF;
     color: rgb(29, 161, 242);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 }
 

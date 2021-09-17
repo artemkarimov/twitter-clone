@@ -25,11 +25,19 @@ const Signup: FC = () => {
     <Card>
       <img src={logo} alt="logo" className={classes.logo} />
       <h2>Create your account</h2>
-      <Input type="text" placeholder="Name" reference={nameRef} />
-      <Input type="text" placeholder={registerOption} reference={passwordRef} />
-      <Button noBorder={true} onClick={changeRegisterOption}>
-        Use {anotherOption(registerOption).toLowerCase()} instead
-      </Button>
+      <form className={classes.form}>
+        <Input type="text" placeholder="Name" reference={nameRef} />
+        <Input type="text" placeholder={registerOption} reference={passwordRef} />
+        <Button noBorder={true} onClick={changeRegisterOption} type="button">
+          Use {anotherOption(registerOption).toLowerCase()} instead
+        </Button>
+        <h4>Date of birth</h4>
+        <p>
+          This will not be shown publicly. Confirm your own age, even if this account is for a
+          business, a pet, or something else.
+        </p>
+        <Button width="100%" disabled={true}>Next</Button>
+      </form>
     </Card>
   );
 };
