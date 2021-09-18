@@ -1,6 +1,6 @@
 import { FC, RefObject } from 'react';
 
-import classes from './Input.module.scss';
+import styles from './styles.module.scss';
 
 interface Props {
   type: string;
@@ -13,7 +13,7 @@ const Input: FC<Props> = props => {
     <input
       type={props.type}
       placeholder={props.placeholder}
-      className={classes.formInput}
+      className={styles.formInput}
       ref={props.reference}
     />
   );

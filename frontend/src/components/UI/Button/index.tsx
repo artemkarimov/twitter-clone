@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import classes from './Button.module.scss';
+import styles from './styles.module.scss';
 
 type ButtonType = 'button' | 'submit' | 'reset';
 
@@ -17,9 +17,9 @@ interface Props {
 
 const Button: FC<Props> = props => {
   const classNames = [
-    classes.button,
-    props.flat ? classes.flat : '',
-    props.noBorder ? classes['no-border'] : '',
+    styles.button,
+    props.flat ? styles.flat : '',
+    props.noBorder ? styles['no-border'] : '',
   ];
   const button = (
     <button

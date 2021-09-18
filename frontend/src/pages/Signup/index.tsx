@@ -4,7 +4,7 @@ import Card from 'components/UI/Card';
 import Input from 'components/UI/Input';
 import Button from 'components/UI/Button';
 import logo from 'assets/logo.svg';
-import classes from './Signup.module.scss';
+import styles from './styles.module.scss';
 
 const Signup: FC = () => {
   type RegisterOption = 'Email' | 'Phone';
@@ -23,9 +23,9 @@ const Signup: FC = () => {
 
   return (
     <Card>
-      <img src={logo} alt="logo" className={classes.logo} />
+      <img src={logo} alt="logo" className={styles.logo} />
       <h2>Create your account</h2>
-      <form className={classes.form}>
+      <form className={styles.form}>
         <Input type="text" placeholder="Name" reference={nameRef} />
         <Input type="text" placeholder={registerOption} reference={passwordRef} />
         <Button noBorder={true} onClick={changeRegisterOption} type="button">

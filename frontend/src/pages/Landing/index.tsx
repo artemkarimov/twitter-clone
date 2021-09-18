@@ -6,7 +6,7 @@ import share from 'assets/share.svg';
 import users from 'assets/users.svg';
 import comment from 'assets/comment.svg';
 import Button from 'components/UI/Button';
-import classes from './Landing.module.scss';
+import styles from './styles.module.scss';
 
 const Landing: FC = () => {
   const icons = [
@@ -61,10 +61,10 @@ const Landing: FC = () => {
     },
   ];
   return (
-    <div className={classes.landing}>
-      <div className={classes['side-banner']}>
+    <div className={styles.landing}>
+      <div className={styles['side-banner']}>
         <img src={logo} alt="twitter-logo" />
-        <div className={classes['banner-content']}>
+        <div className={styles['banner-content']}>
           <ul className="icons">
             {icons.map((icon, index) => (
               <li key={index}>
@@ -81,7 +81,7 @@ const Landing: FC = () => {
           </ul>
         </div>
       </div>
-      <div className={classes.content}>
+      <div className={styles.content}>
         <img src={logo} alt="twitter-logo" />
         <h1>
           See what's happening in <br /> the world right now

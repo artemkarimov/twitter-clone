@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import classes from './Card.module.scss';
+import styles from './styles.module.scss';
 
 const Card: FC = props => {
-  return <div className={classes.card}>{props.children}</div>;
+  return <div className={styles.card}>{props.children}</div>;
 };
 
 export default Card;
