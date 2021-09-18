@@ -8,14 +8,9 @@ interface Props {
   reference: RefObject<HTMLInputElement>;
 }
 
-const Input: FC<Props> = props => {
+const Input: FC<Props> = ({ type, placeholder, reference }) => {
   return (
-    <input
-      type={props.type}
-      placeholder={props.placeholder}
-      className={styles.formInput}
-      ref={props.reference}
-    />
+    <input type={type} placeholder={placeholder} className={styles.formInput} ref={reference} />
   );
 };
 

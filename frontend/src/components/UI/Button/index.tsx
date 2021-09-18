@@ -15,24 +15,20 @@ interface Props {
   onClick?: () => void;
 }
 
-const Button: FC<Props> = props => {
-  const classNames = [
-    styles.button,
-    props.flat ? styles.flat : '',
-    props.noBorder ? styles['no-border'] : '',
-  ];
+const Button: FC<Props> = ({ children, type, flat, width, link, noBorder, disabled, onClick }) => {
+  const classNames = [styles.button, flat ? styles.flat : '', noBorder ? styles['no-border'] : ''];
   const button = (
     <button
-      type={props.type}
+      type={type}
       className={classNames.join(' ')}
-      style={{ width: props.width }}
-      onClick={props.onClick}
-      disabled={props.disabled}
+      style={{ width: width }}
+      onClick={onClick}
+      disabled={disabled}
     >
-      {props.children}
+      {children}
     </button>
   );
-  if (props.link) return <Link to={props.link}>{button}</Link>;
+  if (link) return <Link to={link}>{button}</Link>;
   return <>{button}</>;
 };
 
