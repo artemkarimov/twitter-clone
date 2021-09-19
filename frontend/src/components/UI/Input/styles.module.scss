@@ -5,11 +5,15 @@
   font-size: 1.2rem;
   outline: none;
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 0.2rem;
 
   &::placeholder {
     font-size: 1rem;
     padding: 0.4rem;
+  }
+
+  &:focus {
+    border: 2px solid rgb(29, 161, 242);;
   }
 }
