@@ -13,7 +13,8 @@
     padding: 0.4rem;
   }
 
+  &:active,
   &:focus {
-    border: 2px solid rgb(29, 161, 242);;
+    border: 2px solid rgb(29, 161, 242);
   }
 }
