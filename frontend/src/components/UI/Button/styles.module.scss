@@ -6,7 +6,7 @@
   font: inherit;
   background-color: $dodgerBlueColor;
   border: 1px solid $dodgerBlueColor;
-  color: #FFFFFF;
+  color: $whiteColor;
   cursor: pointer;
   border-radius: 30px;
   margin-right: 0.5rem;
@@ -15,8 +15,8 @@
   outline: none;
 
   &:hover:not([disabled]) {
-    background-color: #FFFFFF;
-    color: rgb(29, 161, 242);
+    background-color: $whiteColor;
+    color: $dodgerBlueColor;
   }
 
   &:disabled {
@@ -29,11 +29,11 @@
 }
 
 .flat {
-  background-color: #FFFFFF;
+  background-color: $whiteColor;
   color: $dodgerBlueColor;
 
   &:hover {
-    color: #FFFFFF;
+    color: $whiteColor;
     background-color: $dodgerBlueColor;
   }
 }
@@ -45,7 +45,7 @@ a {
 .no-border {
   border-width: 0;
   padding-left: 0;
-  background-color: #FFFFFF;
+  background-color: $whiteColor;
   color: $dodgerBlueColor;
 
   &:hover {

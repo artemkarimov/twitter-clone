@@ -3,7 +3,7 @@
 .select-box {
   width: 7rem;
   height: 3rem;
-  border: 0.13rem solid #ccc;
+  border: 0.13rem solid $lightGrayColor;
   border-radius: 0.2rem;
   overflow: hidden;
   position: relative;
@@ -28,14 +28,14 @@
     left: 0.5rem;
     content: 'Year';
     font-size: 1rem;
-    color: rgb(139, 139, 139);
+    color: $suvaGrayColor;
     z-index: 0;
   }
 
   &::after {
     width: 0.13rem; 
     height: 0.13rem; 
-    border: solid rgb(102, 102, 102);
+    border: solid $dimGrayColor;
     border-width: 0 0.13rem 0.13rem 0;
     display: inline-block;
     padding: 0.19rem;
@@ -56,7 +56,7 @@
     font-size: 1.1rem;
     padding-top: 1.3rem;
     padding-left: 0.5rem;
-    color: #000000;
+    color: $blackColor;
     cursor: pointer;
     outline: none;
     z-index: 1;
