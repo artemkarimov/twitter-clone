@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
 
-const Select: FC = () => {
+const YearSelect: FC = () => {
   const years = [];
   const currentYear = new Date().getFullYear();
   for (let i = currentYear; i >= 1901; i--) {
@@ -22,4 +22,4 @@ const Select: FC = () => {
   );
 };
 
-export default Select;
+export default YearSelect;

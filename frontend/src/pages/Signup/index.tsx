@@ -3,6 +3,7 @@ import { FC, useState, useRef } from 'react';
 import Card from 'components/UI/Card';
 import Input from 'components/UI/Input';
 import Button from 'components/UI/Button';
+import YearSelect from 'components/UI/Select/Year';
 import logo from 'assets/logo.svg';
 import styles from './styles.module.scss';
 
@@ -36,6 +37,7 @@ const Signup: FC = () => {
           This will not be shown publicly. Confirm your own age, even if this account is for a
           business, a pet, or something else.
         </p>
+        <YearSelect />
         <Button width="100%" disabled={true}>Next</Button>
       </form>
     </Card>
