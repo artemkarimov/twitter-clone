@@ -1,10 +1,17 @@
 import { FC } from 'react';
 
 import styles from '../styles.module.scss';
+import getDaysNumber from 'helpers/daysNumberInMonth';
 
-const DaySelect: FC = () => {
+interface Props {
+  year: number;
+  month: number;
+}
+
+const DaySelect: FC<Props> = ({ year, month }) => {
   const days = [];
-  for (let i = 1; i <= 31; i++) {
+  const daysNumber = getDaysNumber(year, month);
+  for (let i = 1; i <= daysNumber; i++) {
     days.push(i);
   }
   return (
