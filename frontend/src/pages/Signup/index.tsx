@@ -14,6 +14,7 @@ const Signup: FC = () => {
 
   const nameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const yearRef = useRef<HTMLSelectElement>(null);
 
   const anotherOption = (previousOption: RegisterOption) => {
     if (previousOption === 'Email') return 'Phone';
@@ -37,7 +38,7 @@ const Signup: FC = () => {
           This will not be shown publicly. Confirm your own age, even if this account is for a
           business, a pet, or something else.
         </p>
-        <YearSelect />
+        <YearSelect reference={yearRef} />
         <Button width="100%" disabled={true}>Next</Button>
       </form>
     </Card>

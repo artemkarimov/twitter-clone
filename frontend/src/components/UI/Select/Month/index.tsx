@@ -1,8 +1,12 @@
-import { FC } from 'react';
+import { FC, RefObject } from 'react';
 
 import styles from '../styles.module.scss';
 
-const MonthSelect: FC = () => {
+interface Props {
+  reference: RefObject<HTMLSelectElement>;
+}
+
+const MonthSelect: FC<Props> = ({ reference }) => {
   const months = [
     'January',
     'Febtuary',
@@ -19,7 +23,7 @@ const MonthSelect: FC = () => {
   ];
   return (
     <div className={styles['select-box']} style={{ width: '9rem' }}>
-      <select name="Year">
+      <select name="Year" ref={reference}>
         <option disabled selected></option>
         {months.map(month => (
           <option key={month} value={month}>

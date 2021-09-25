@@ -1,8 +1,12 @@
-import { FC } from 'react';
+import { FC, RefObject } from 'react';
 
 import styles from '../styles.module.scss';
 
-const YearSelect: FC = () => {
+interface Props {
+  reference: RefObject<HTMLSelectElement>;
+}
+
+const YearSelect: FC<Props> = ({ reference }) => {
   const years = [];
   const currentYear = new Date().getFullYear();
   for (let i = currentYear; i >= 1901; i--) {
@@ -10,7 +14,7 @@ const YearSelect: FC = () => {
   }
   return (
     <div className={styles['select-box']}>
-      <select name="Year">
+      <select name="Year" ref={reference}>
         <option disabled selected></option>
         {years.map(year => (
           <option key={year} value={year}>
