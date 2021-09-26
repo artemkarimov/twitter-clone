@@ -1,4 +1,4 @@
-import { FC, useState, useRef } from 'react';
+import { FC, useState, useRef, ChangeEvent } from 'react';
 
 import Card from 'components/UI/Card';
 import Input from 'components/UI/Input';
@@ -6,15 +6,18 @@ import Button from 'components/UI/Button';
 import YearSelect from 'components/UI/Select/Year';
 import logo from 'assets/logo.svg';
 import styles from './styles.module.scss';
+import MonthSelect from 'components/UI/Select/Month';
+import DaySelect from 'components/UI/Select/Day';
 
 const Signup: FC = () => {
   type RegisterOption = 'Email' | 'Phone';
 
   const [registerOption, setRegisterOption] = useState<RegisterOption>('Email');
+  const [year, setYear] = useState<number>();
+  const [month, setMonth] = useState<number>();
 
   const nameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const yearRef = useRef<HTMLSelectElement>(null);
 
   const anotherOption = (previousOption: RegisterOption) => {
     if (previousOption === 'Email') return 'Phone';
@@ -22,6 +25,14 @@ const Signup: FC = () => {
   };
 
   const changeRegisterOption = () => setRegisterOption(prevOption => anotherOption(prevOption));
+
+  const yearChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    setYear(+event.target.value);
+  };
+
+  const monthChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    setMonth(+event.target.value);
+  };
 
   return (
     <Card>
@@ -38,8 +49,14 @@ const Signup: FC = () => {
           This will not be shown publicly. Confirm your own age, even if this account is for a
           business, a pet, or something else.
         </p>
-        <YearSelect reference={yearRef} />
-        <Button width="100%" disabled={true}>Next</Button>
+        <div className={styles['birth-date']}>
+          <MonthSelect changeHandler={monthChangeHandler} />
+          <DaySelect year={year} month={month} />
+          <YearSelect changeHandler={yearChangeHandler} />
+        </div>
+        <Button width="100%" disabled={true}>
+          Next
+        </Button>
       </form>
     </Card>
   );

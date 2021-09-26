@@ -1,15 +1,15 @@
-import { FC, RefObject } from 'react';
+import { ChangeEvent, FC } from 'react';
 
 import styles from '../styles.module.scss';
 
 interface Props {
-  reference: RefObject<HTMLSelectElement>;
+  changeHandler: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const MonthSelect: FC<Props> = ({ reference }) => {
+const MonthSelect: FC<Props> = ({ changeHandler }) => {
   const months = [
     'January',
-    'Febtuary',
+    'February',
     'March',
     'April',
     'May',
@@ -21,12 +21,13 @@ const MonthSelect: FC<Props> = ({ reference }) => {
     'November',
     'December',
   ];
+
   return (
-    <div className={styles['select-box']} style={{ width: '9rem' }}>
-      <select name="Year" ref={reference}>
+    <div className={styles['select-box']} style={{ width: '15rem' }}>
+      <select name="Year" onChange={changeHandler}>
         <option disabled selected></option>
-        {months.map(month => (
-          <option key={month} value={month}>
+        {months.map((month, index) => (
+          <option key={month} value={index + 1}>
             {month}
           </option>
         ))}
