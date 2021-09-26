@@ -1,17 +1,16 @@
 @import '../../../styles/variables';
 
 .select-box {
-  width: 7rem;
   height: 3rem;
-  border: 0.13rem solid $lightGrayColor;
-  border-radius: 0.2rem;
+  border: 0.05rem solid $lightGrayColor;
+  border-radius: 0.25rem;
   overflow: hidden;
   position: relative;
   margin-bottom: 1rem;
 
   &:active,
   &:focus-within {
-    border-color: $dodgerBlueColor;
+    border: 0.13rem solid $dodgerBlueColor;
 
     &::before {
       color: $dodgerBlueColor;

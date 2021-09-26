@@ -7,8 +7,8 @@
   font-size: 1.2rem;
   outline: none;
   margin-bottom: 1rem;
-  border: 2px solid $lightGrayColor;
-  border-radius: 0.2rem;
+  border: 0.05rem solid $lightGrayColor;
+  border-radius: 0.25rem;
 
   &::placeholder {
     font-size: 1rem;
@@ -17,6 +17,6 @@
 
   &:active,
   &:focus {
-    border: 2px solid $dodgerBlueColor;
+    border: 0.13rem solid $dodgerBlueColor;
   }
 }
