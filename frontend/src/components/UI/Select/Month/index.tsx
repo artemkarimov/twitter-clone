@@ -1,26 +1,19 @@
 import { ChangeEvent, FC } from 'react';
 
 import styles from '../styles.module.scss';
+import getMonthName from 'helpers/monthName';
 
 interface Props {
   changeHandler: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const MonthSelect: FC<Props> = ({ changeHandler }) => {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+  const months = [];
+
+  for (let i = 0; i < 12; i++) {
+    const month = getMonthName(i);
+    months.push(month);
+  }
 
   return (
     <div className={styles['select-box']} style={{ width: '15rem' }}>
