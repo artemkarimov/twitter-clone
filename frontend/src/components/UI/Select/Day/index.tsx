@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import styles from '../styles.module.scss';
-import getDaysNumber from 'helpers/daysNumberInMonth';
+import getNumberOfDays from 'helpers/numberOfDays';
 
 interface Props {
   year: number | undefined;
@@ -10,11 +10,8 @@ interface Props {
 
 const DaySelect: FC<Props> = ({ year, month }) => {
   const days = [];
-  let daysNumber: number;
-  if (year && month) daysNumber = getDaysNumber(year, month);
-  else if (month && !year) daysNumber = getDaysNumber(2020, month);
-  else daysNumber = 31;
-  for (let i = 1; i <= daysNumber; i++) {
+  const numberOfDays = getNumberOfDays(year, month);
+  for (let i = 1; i <= numberOfDays; i++) {
     days.push(i);
   }
   const contentBefore = { 'content-before': 'Day' };
