@@ -11,6 +11,7 @@
   &:active,
   &:focus-within {
     border: 0.13rem solid $dodgerBlueColor;
+    margin-bottom: 0.84rem;
 
     &::before {
       color: $dodgerBlueColor;
