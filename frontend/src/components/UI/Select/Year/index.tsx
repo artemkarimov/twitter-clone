@@ -7,13 +7,14 @@ interface Props {
 }
 
 const YearSelect: FC<Props> = ({ changeHandler }) => {
+  const contentBefore = { 'content-before': 'Year' };
   const years = [];
   const currentYear = new Date().getFullYear();
   for (let i = currentYear; i >= 1901; i--) {
     years.push(i);
   }
   return (
-    <div className={styles['select-box']} style={{ width: '8rem' }}>
+    <div className={styles['select-box']} style={{ width: '8rem' }} {...contentBefore}>
       <select name="Year" onChange={changeHandler}>
         <option disabled selected></option>
         {years.map(year => (

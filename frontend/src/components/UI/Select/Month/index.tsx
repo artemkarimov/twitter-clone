@@ -9,14 +9,13 @@ interface Props {
 
 const MonthSelect: FC<Props> = ({ changeHandler }) => {
   const months = [];
-
   for (let i = 0; i < 12; i++) {
     const month = getMonthName(i);
     months.push(month);
   }
-
+  const contentBefore = { 'content-before': 'Month' };
   return (
-    <div className={styles['select-box']} style={{ width: '15rem' }}>
+    <div className={styles['select-box']} style={{ width: '15rem' }} {...contentBefore}>
       <select name="Year" onChange={changeHandler}>
         <option disabled selected></option>
         {months.map((month, index) => (

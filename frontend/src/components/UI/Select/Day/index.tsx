@@ -17,8 +17,9 @@ const DaySelect: FC<Props> = ({ year, month }) => {
   for (let i = 1; i <= daysNumber; i++) {
     days.push(i);
   }
+  const contentBefore = { 'content-before': 'Day' };
   return (
-    <div className={styles['select-box']} style={{ width: '7rem' }}>
+    <div className={styles['select-box']} style={{ width: '7rem' }} {...contentBefore}>
       <select name="Year">
         <option disabled selected></option>
         {days.map(day => (
