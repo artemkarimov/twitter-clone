@@ -16,8 +16,8 @@ const Signup: FC = () => {
   const [year, setYear] = useState<number>();
   const [month, setMonth] = useState<number>();
 
-  const nameRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>();
+  const passwordRef = useRef<HTMLInputElement>();
 
   const anotherOption = (previousOption: RegisterOption) => {
     if (previousOption === 'Email') return 'Phone';
