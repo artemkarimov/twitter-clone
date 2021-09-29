@@ -1,3 +1,3 @@
-const isEmpty = (value: string | undefined): boolean => !!value;
+const isEmpty = (value: string | number | undefined): boolean => !!value;
 
 export default isEmpty;

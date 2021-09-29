@@ -8,6 +8,15 @@ import logo from 'assets/logo.svg';
 import styles from './styles.module.scss';
 import MonthSelect from 'components/UI/Select/Month';
 import DaySelect from 'components/UI/Select/Day';
+import isEmpty from 'helpers/isEmpty';
+
+interface RegisterData {
+  name: string;
+  email: string;
+  year: number;
+  month: number;
+  day: number;
+}
 
 const Signup: FC = () => {
   type RegisterOption = 'Email' | 'Phone';
@@ -15,9 +24,28 @@ const Signup: FC = () => {
   const [registerOption, setRegisterOption] = useState<RegisterOption>('Email');
   const [year, setYear] = useState<number>();
   const [month, setMonth] = useState<number>();
+  const [day, setDay] = useState<number>();
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const [registerData, setRegisterData] = useState<RegisterData>({
+    name: '',
+    email: '',
+    year: 0,
+    month: 0,
+    day: 0,
+  });
 
-  const nameRef = useRef<HTMLInputElement>();
-  const passwordRef = useRef<HTMLInputElement>();
+  const checkIsRequiredDataEntered = () => {
+    return (
+      isEmpty(nameRef.current?.value) &&
+      isEmpty(passwordRef.current?.value) &&
+      isEmpty(month) &&
+      isEmpty(registerData.year) &&
+      isEmpty(day)
+    );
+  };
+
+  const nameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   const anotherOption = (previousOption: RegisterOption) => {
     if (previousOption === 'Email') return 'Phone';
@@ -28,10 +56,18 @@ const Signup: FC = () => {
 
   const yearChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setYear(+event.target.value);
+    setRegisterData(previousValue => ({ ...previousValue, year: +event.target.value}));
+    setIsDisabled(!checkIsRequiredDataEntered());
   };
 
   const monthChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setMonth(+event.target.value);
+    setIsDisabled(!checkIsRequiredDataEntered());
+  };
+
+  const dayChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    setDay(+event.target.value);
+    setIsDisabled(!checkIsRequiredDataEntered());
   };
 
   return (
@@ -51,10 +87,10 @@ const Signup: FC = () => {
         </p>
         <div className={styles['birth-date']}>
           <MonthSelect changeHandler={monthChangeHandler} />
-          <DaySelect year={year} month={month} />
+          <DaySelect year={year} month={month} changeHandler={dayChangeHandler} />
           <YearSelect changeHandler={yearChangeHandler} />
         </div>
-        <Button width="100%" disabled={true}>
+        <Button width="100%" disabled={isDisabled}>
           Next
         </Button>
       </form>

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react';
+import { FC, ChangeEvent } from 'react';
 
 import styles from '../styles.module.scss';
 import getMonthName from 'helpers/monthName';
