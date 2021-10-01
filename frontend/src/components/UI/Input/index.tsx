@@ -1,16 +1,21 @@
-import { FC, RefObject } from 'react';
+import { FC, ChangeEvent } from 'react';
 
 import styles from './styles.module.scss';
 
 interface Props {
   type: string;
   placeholder: string;
-  reference: RefObject<HTMLInputElement>;
+  changeHandler?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<Props> = ({ type, placeholder, reference }) => {
+const Input: FC<Props> = ({ type, placeholder, changeHandler }) => {
   return (
-    <input type={type} placeholder={placeholder} className={styles.formInput} ref={reference} />
+    <input
+      type={type}
+      placeholder={placeholder}
+      className={styles.formInput}
+      onChange={changeHandler}
+    />
   );
 };
 

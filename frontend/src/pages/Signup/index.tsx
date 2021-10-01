@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useRef, ChangeEvent } from 'react';
+import { FC, useState, useEffect, ChangeEvent } from 'react';
 
 import Card from 'components/UI/Card';
 import Input from 'components/UI/Input';
@@ -21,14 +21,11 @@ const Signup: FC = () => {
   const [day, setDay] = useState<number>();
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
 
-  useEffect(() => setIsDisabled(checkIsRequiredDataEntered()), [name, login, year, month, day]);
+  useEffect(() => setIsDisabled(!checkIsRequiredDataEntered()), [name, login, year, month, day]);
 
   const checkIsRequiredDataEntered = () => {
     return isEmpty(name) && isEmpty(login) && isEmpty(month) && isEmpty(year) && isEmpty(day);
   };
-
-  const nameRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
 
   const anotherOption = (previousOption: RegisterOption) => {
     if (previousOption === 'Email') return 'Phone';
@@ -36,6 +33,14 @@ const Signup: FC = () => {
   };
 
   const changeRegisterOption = () => setRegisterOption(prevOption => anotherOption(prevOption));
+
+  const nameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  const loginChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setLogin(event.target.value);
+  };
 
   const yearChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setYear(+event.target.value);
@@ -54,8 +59,16 @@ const Signup: FC = () => {
       <img src={logo} alt="logo" className={styles.logo} />
       <h2>Create your account</h2>
       <form className={styles.form}>
-        <Input type="text" placeholder="Name" reference={nameRef} />
-        <Input type="text" placeholder={registerOption} reference={passwordRef} />
+        <Input
+          type="text"
+          placeholder="Name"
+          changeHandler={nameChangeHandler}
+        />
+        <Input
+          type="text"
+          placeholder={registerOption}
+          changeHandler={loginChangeHandler}
+        />
         <Button noBorder={true} onClick={changeRegisterOption} type="button">
           Use {anotherOption(registerOption).toLowerCase()} instead
         </Button>
