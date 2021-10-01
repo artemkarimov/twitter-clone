@@ -4,20 +4,13 @@
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   font: inherit;
-  background-color: $dodgerBlueColor;
   border: 1px solid $dodgerBlueColor;
-  color: $whiteColor;
   cursor: pointer;
   border-radius: 30px;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
   display: block;
   outline: none;
-
-  &:hover:not([disabled]) {
-    background-color: $whiteColor;
-    color: $dodgerBlueColor;
-  }
 
   &:disabled {
     opacity: 0.4;
@@ -28,13 +21,23 @@
   }
 }
 
+.regular {
+  background-color: $dodgerBlueColor;
+  color: $whiteColor;
+
+  &:hover {
+    background-color: $whiteColor;
+    color: $dodgerBlueColor;
+  }
+}
+
 .flat {
   background-color: $whiteColor;
   color: $dodgerBlueColor;
 
   &:hover {
-    color: $whiteColor;
     background-color: $dodgerBlueColor;
+    color: $whiteColor;
   }
 }
 

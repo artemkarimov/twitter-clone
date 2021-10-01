@@ -16,7 +16,11 @@ interface Props {
 }
 
 const Button: FC<Props> = ({ children, type, flat, width, link, noBorder, disabled, onClick }) => {
-  const classNames = [styles.button, flat ? styles.flat : '', noBorder ? styles['no-border'] : ''];
+  const classNames = [
+    styles.button,
+    flat ? styles.flat : styles.regular,
+    noBorder ? styles['no-border'] : '',
+  ];
   const button = (
     <button
       type={type}
