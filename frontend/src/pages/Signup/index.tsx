@@ -1,4 +1,4 @@
-import { FC, useState, useRef, ChangeEvent } from 'react';
+import { FC, useState, useEffect, useRef, ChangeEvent } from 'react';
 
 import Card from 'components/UI/Card';
 import Input from 'components/UI/Input';
@@ -10,38 +10,21 @@ import MonthSelect from 'components/UI/Select/Month';
 import DaySelect from 'components/UI/Select/Day';
 import isEmpty from 'helpers/isEmpty';
 
-interface RegisterData {
-  name: string;
-  email: string;
-  year: number;
-  month: number;
-  day: number;
-}
-
 const Signup: FC = () => {
   type RegisterOption = 'Email' | 'Phone';
 
   const [registerOption, setRegisterOption] = useState<RegisterOption>('Email');
+  const [name, setName] = useState<string>();
+  const [login, setLogin] = useState<string>();
   const [year, setYear] = useState<number>();
   const [month, setMonth] = useState<number>();
   const [day, setDay] = useState<number>();
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
-  const [registerData, setRegisterData] = useState<RegisterData>({
-    name: '',
-    email: '',
-    year: 0,
-    month: 0,
-    day: 0,
-  });
+
+  useEffect(() => setIsDisabled(checkIsRequiredDataEntered()), [name, login, year, month, day]);
 
   const checkIsRequiredDataEntered = () => {
-    return (
-      isEmpty(nameRef.current?.value) &&
-      isEmpty(passwordRef.current?.value) &&
-      isEmpty(month) &&
-      isEmpty(registerData.year) &&
-      isEmpty(day)
-    );
+    return isEmpty(name) && isEmpty(login) && isEmpty(month) && isEmpty(year) && isEmpty(day);
   };
 
   const nameRef = useRef<HTMLInputElement>(null);
@@ -56,18 +39,14 @@ const Signup: FC = () => {
 
   const yearChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setYear(+event.target.value);
-    setRegisterData(previousValue => ({ ...previousValue, year: +event.target.value}));
-    setIsDisabled(!checkIsRequiredDataEntered());
   };
 
   const monthChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setMonth(+event.target.value);
-    setIsDisabled(!checkIsRequiredDataEntered());
   };
 
   const dayChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setDay(+event.target.value);
-    setIsDisabled(!checkIsRequiredDataEntered());
   };
 
   return (
