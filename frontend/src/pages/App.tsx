@@ -4,18 +4,19 @@ import { Switch, Route } from 'react-router-dom';
 import Landing from './Landing';
 import Login from './Login';
 import Signup from './Signup';
+import Routes from 'constants/enums/routes';
 
 const App: FC = () => {
   return (
     <>
       <Switch>
-        <Route path="/" exact>
+        <Route path={Routes.DEFAULT} exact>
           <Landing />
         </Route>
-        <Route path="/login">
+        <Route path={Routes.LOGIN}>
           <Login />
         </Route>
-        <Route path="/signup">
+        <Route path={Routes.SIGNUP}>
           <Signup />
         </Route>
       </Switch>

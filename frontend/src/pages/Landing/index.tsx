@@ -6,6 +6,7 @@ import share from 'assets/share.svg';
 import users from 'assets/users.svg';
 import comment from 'assets/comment.svg';
 import Button from 'components/UI/Button';
+import Routes from 'constants/enums/routes';
 import styles from './styles.module.scss';
 
 const Landing: FC = () => {
@@ -87,10 +88,10 @@ const Landing: FC = () => {
           See what's happening in <br /> the world right now
         </h1>
         <h2>Join Twitter today.</h2>
-        <Button width="23rem" link="/signup">
+        <Button width="23rem" link={Routes.SIGNUP}>
           Sign up
         </Button>
-        <Button flat={true} width="23rem" link="/login">
+        <Button flat={true} width="23rem" link={Routes.LOGIN}>
           Log in
         </Button>
       </div>
