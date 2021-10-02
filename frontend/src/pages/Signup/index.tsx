@@ -61,12 +61,12 @@ const Signup: FC = () => {
       <form className={styles.form}>
         <Input
           type="text"
-          placeholder="Name"
+          label="Name"
           changeHandler={nameChangeHandler}
         />
         <Input
           type="text"
-          placeholder={registerOption}
+          label={registerOption}
           changeHandler={loginChangeHandler}
         />
         <Button noBorder={true} onClick={changeRegisterOption} type="button">

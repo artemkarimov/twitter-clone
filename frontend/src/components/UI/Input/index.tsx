@@ -1,21 +1,31 @@
-import { FC, ChangeEvent } from 'react';
+import { FC, useState, ChangeEvent } from 'react';
 
 import styles from './styles.module.scss';
 
 interface Props {
   type: string;
-  placeholder: string;
+  label: string;
   changeHandler?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<Props> = ({ type, placeholder, changeHandler }) => {
+const Input: FC<Props> = ({ type, label, changeHandler }) => {
+  const [isEmpty, setIsEmpty] = useState<boolean>(true);
+  const classNames = [styles.input, isEmpty ? '' : styles['not-empty-input']];
+  const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target?.value) setIsEmpty(false);
+    else setIsEmpty(true);
+  };
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      className={styles.formInput}
-      onChange={changeHandler}
-    />
+    <div className={classNames.join(' ')}>
+      <input
+        type={type}
+        onChange={event => {
+          if (changeHandler) changeHandler(event);
+          inputHandler(event);
+        }}
+      />
+      <label>{label}</label>
+    </div>
   );
 };
 

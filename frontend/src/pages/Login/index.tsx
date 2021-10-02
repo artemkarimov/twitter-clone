@@ -28,10 +28,11 @@ const Login: FC = () => {
       <form onSubmit={submitHandler}>
         <Input
           type="text"
-          placeholder="Phone, email or username"
+          label="Phone, email or username"
+          // placeholder="Phone, email or username"
           changeHandler={loginChangeHandler}
         />
-        <Input type="password" placeholder="Password" changeHandler={passwordChangeHandler} />
+        <Input type="password" label="Password" changeHandler={passwordChangeHandler} />
         <Button width="20.4rem">Log In</Button>
       </form>
     </div>

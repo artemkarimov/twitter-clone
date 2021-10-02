@@ -1,23 +1,75 @@
 @import '../../../styles/variables';
 
-.formInput {
-  width: 100%;
-  height: 3rem;
-  margin-top: 0.4rem;
-  font-size: 1.2rem;
-  outline: none;
-  margin-bottom: 1rem;
-  border: 0.05rem solid $lightGrayColor;
-  border-radius: 0.25rem;
+.input {
+  position: relative;
 
-  &::placeholder {
-    font-size: 1rem;
-    padding: 0.4rem;
+  input {
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+    outline: none;
+    margin-bottom: 1rem;
+    border: 0.05rem solid $lightGrayColor;
+    border-radius: 0.25rem;
+    padding-top: 1.2rem;
+    padding-left: 0.3rem;
+    transition: 0.5s;
+  
+    &:active,
+    &:focus {
+      border: 0.13rem solid $dodgerBlueColor;
+      margin-bottom: 0.84rem;
+      padding-top: 1.12rem;
+      padding-left: 0.22rem;
+    }
+
+    &:focus ~ label {
+      top: 0.55rem;
+      font-size: 0.9rem;
+      color: $dodgerBlueColor;
+    }
   }
 
-  &:active,
-  &:focus {
-    border: 0.13rem solid $dodgerBlueColor;
-    margin-bottom: 0.84rem;
+  label {
+    position: absolute;
+    top: 1.5rem;
+    color: #8E8E8E;
+    font-size: 1.05rem;
+    padding-left: 0.4rem;
+    pointer-events: none;
+    transition: 0.5s;
   }
 }
+
+.not-empty-input {
+  input {
+    & ~ label {
+      top: 0.55rem;
+      font-size: 0.9rem;
+      color: #8E8E8E;
+    }
+  }
+}
+
+// .formInput {
+//   width: 100%;
+//   height: 3rem;
+//   margin-top: 0.4rem;
+//   font-size: 1.2rem;
+//   outline: none;
+//   margin-bottom: 1rem;
+//   border: 0.05rem solid $lightGrayColor;
+//   border-radius: 0.25rem;
+
+//   &::placeholder {
+//     font-size: 1rem;
+//     padding: 0.4rem;
+//   }
+
+//   &:active,
+//   &:focus {
+//     border: 0.13rem solid $dodgerBlueColor;
+//     margin-bottom: 0.84rem;
+//   }
+// }
