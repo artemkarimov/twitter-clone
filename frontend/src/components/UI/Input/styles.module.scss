@@ -34,7 +34,7 @@
   label {
     position: absolute;
     top: 1.5rem;
-    color: #8E8E8E;
+    color: $suvaGrayColor;
     font-size: 1.05rem;
     padding-left: 0.4rem;
     pointer-events: none;
@@ -47,7 +47,7 @@
     & ~ label {
       top: 0.55rem;
       font-size: 0.9rem;
-      color: #8E8E8E;
+      color: $suvaGrayColor;
     }
   }
 }
