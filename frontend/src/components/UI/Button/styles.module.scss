@@ -25,7 +25,7 @@
   background-color: $dodgerBlueColor;
   color: $whiteColor;
 
-  &:hover {
+  &:enabled:hover {
     background-color: $whiteColor;
     color: $dodgerBlueColor;
   }
@@ -35,7 +35,7 @@
   background-color: $whiteColor;
   color: $dodgerBlueColor;
 
-  &:hover {
+  &:enabled:hover {
     background-color: $dodgerBlueColor;
     color: $whiteColor;
   }

@@ -54,21 +54,17 @@ const Signup: FC = () => {
     setDay(+event.target.value);
   };
 
+  const buttonStyles = {
+    width: '100%',
+  };
+
   return (
     <Card>
       <img src={logo} alt="logo" className={styles.logo} />
       <h2>Create your account</h2>
       <form className={styles.form}>
-        <Input
-          type="text"
-          label="Name"
-          changeHandler={nameChangeHandler}
-        />
-        <Input
-          type="text"
-          label={registerOption}
-          changeHandler={loginChangeHandler}
-        />
+        <Input type="text" label="Name" changeHandler={nameChangeHandler} />
+        <Input type="text" label={registerOption} changeHandler={loginChangeHandler} />
         <Button noBorder={true} onClick={changeRegisterOption} type="button">
           Use {anotherOption(registerOption).toLowerCase()} instead
         </Button>
@@ -82,7 +78,7 @@ const Signup: FC = () => {
           <DaySelect year={year} month={month} changeHandler={dayChangeHandler} />
           <YearSelect changeHandler={yearChangeHandler} />
         </div>
-        <Button width="100%" disabled={isDisabled}>
+        <Button style={buttonStyles} disabled={isDisabled}>
           Next
         </Button>
       </form>

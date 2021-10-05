@@ -19,7 +19,7 @@ const Login: FC = () => {
   useEffect(() => {
     if (login) setDisabled(false);
     else setDisabled(true);
-  }, [login])
+  }, [login]);
 
   const passwordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -27,6 +27,11 @@ const Login: FC = () => {
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+  };
+
+  const buttonStyles = {
+    width: '32.4rem',
+    marginTop: '17.5rem',
   };
 
   return (
@@ -45,7 +50,9 @@ const Login: FC = () => {
           {loginIsEntered && (
             <Input type="password" label="Password" changeHandler={passwordChangeHandler} />
           )}
-          <Button width="32.4rem" disabled={disabled}>Log In</Button>
+          <Button style={buttonStyles} disabled={disabled}>
+            Log In
+          </Button>
         </form>
       </div>
     </Card>

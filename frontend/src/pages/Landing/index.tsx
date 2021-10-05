@@ -43,6 +43,7 @@ const Landing: FC = () => {
       },
     },
   ];
+  
   const bannerPhrases = [
     {
       phrase: 'Follow your interests.',
@@ -61,6 +62,11 @@ const Landing: FC = () => {
       style: { marginTop: '1.3rem' },
     },
   ];
+
+  const buttonStyles = {
+    width: '23rem',
+  };
+
   return (
     <div className={styles.landing}>
       <div className={styles['side-banner']}>
@@ -88,10 +94,10 @@ const Landing: FC = () => {
           See what's happening in <br /> the world right now
         </h1>
         <h2>Join Twitter today.</h2>
-        <Button width="23rem" link={Routes.SIGNUP}>
+        <Button style={buttonStyles} link={Routes.SIGNUP}>
           Sign up
         </Button>
-        <Button flat={true} width="23rem" link={Routes.LOGIN}>
+        <Button flat={true} style={buttonStyles} link={Routes.LOGIN}>
           Log in
         </Button>
       </div>

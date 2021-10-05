@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './styles.module.scss';
@@ -12,10 +12,20 @@ interface Props {
   link?: string;
   noBorder?: boolean;
   disabled?: boolean;
+  style?: CSSProperties;
   onClick?: () => void;
 }
 
-const Button: FC<Props> = ({ children, type, flat, width, link, noBorder, disabled, onClick }) => {
+const Button: FC<Props> = ({
+  children,
+  type,
+  flat,
+  link,
+  noBorder,
+  disabled,
+  style,
+  onClick,
+}) => {
   const classNames = [
     styles.button,
     flat ? styles.flat : styles.regular,
@@ -25,7 +35,7 @@ const Button: FC<Props> = ({ children, type, flat, width, link, noBorder, disabl
     <button
       type={type}
       className={classNames.join(' ')}
-      style={{ width: width }}
+      style={style}
       onClick={onClick}
       disabled={disabled}
     >
