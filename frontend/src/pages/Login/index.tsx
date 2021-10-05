@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, FormEvent } from 'react';
+import { FC, useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
 import Input from 'components/UI/Input';
 import Button from 'components/UI/Button';
@@ -10,10 +10,16 @@ const Login: FC = () => {
   const [login, setLogin] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [loginIsEntered, setLoginIsEntered] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(true);
 
   const loginChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setLogin(event.target.value);
   };
+
+  useEffect(() => {
+    if (login) setDisabled(false);
+    else setDisabled(true);
+  }, [login])
 
   const passwordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -39,7 +45,7 @@ const Login: FC = () => {
           {loginIsEntered && (
             <Input type="password" label="Password" changeHandler={passwordChangeHandler} />
           )}
-          <Button width="32.4rem">Log In</Button>
+          <Button width="32.4rem" disabled={disabled}>Log In</Button>
         </form>
       </div>
     </Card>
