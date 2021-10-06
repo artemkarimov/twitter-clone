@@ -26,8 +26,7 @@
   color: $whiteColor;
 
   &:enabled:hover {
-    background-color: $whiteColor;
-    color: $dodgerBlueColor;
+    background-color: $summerSkyColor;
   }
 }
 
@@ -36,8 +35,7 @@
   color: $dodgerBlueColor;
 
   &:enabled:hover {
-    background-color: $dodgerBlueColor;
-    color: $whiteColor;
+    background-color: $whiteSmokeColor;
   }
 }
 
