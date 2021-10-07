@@ -17,7 +17,7 @@ const Login: FC = () => {
   };
 
   useEffect(() => {
-    if (login) setDisabled(false);
+    if (login || password) setDisabled(false);
     else setDisabled(true);
   }, [login]);
 
@@ -27,6 +27,10 @@ const Login: FC = () => {
 
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!loginIsEntered) {
+      setLoginIsEntered(true);
+      setDisabled(true);
+    }
   };
 
   const buttonStyles = {
@@ -38,7 +42,11 @@ const Login: FC = () => {
     <Card>
       <div className={styles.login}>
         <img src={logo} alt="logo" className={styles.logo} />
-        <h1>To get started, first enter your phone, email, or @username</h1>
+        {!loginIsEntered ? (
+          <h1>To get started, first enter your phone, email, or @username</h1>
+        ) : (
+          <h1>Enter your password</h1>
+        )}
         <form onSubmit={submitHandler}>
           {!loginIsEntered && (
             <Input
@@ -51,7 +59,7 @@ const Login: FC = () => {
             <Input type="password" label="Password" changeHandler={passwordChangeHandler} />
           )}
           <Button style={buttonStyles} disabled={disabled}>
-            Log In
+            {!loginIsEntered ? 'Next' : 'Log in'}
           </Button>
         </form>
       </div>
