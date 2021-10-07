@@ -11,13 +11,14 @@ const Login: FC = () => {
   const [password, setPassword] = useState<string>();
   const [loginIsEntered, setLoginIsEntered] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(true);
+  const [passwordIsShown, setPasswordIsShown] = useState<boolean>(false);
 
   const loginChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setLogin(event.target.value);
   };
 
   useEffect(() => {
-    if (login || password) setDisabled(false);
+    if (login && !loginIsEntered || password) setDisabled(false);
     else setDisabled(true);
   }, [login, password]);
 
@@ -33,11 +34,19 @@ const Login: FC = () => {
     }
   };
 
+  const clickHandler = () => {
+    setPasswordIsShown(previousValue => !previousValue);
+  };
+
   const buttonStyles = {
     width: '32.4rem',
-    marginTop: !loginIsEntered ? '17.5rem' : '20.2rem',
+    marginTop: !loginIsEntered ? '17.5rem' : '18.7rem',
     backgroundColor: loginIsEntered ? 'black' : '',
     borderColor: loginIsEntered ? 'black' : '',
+  };
+
+  const noBorderButtonStyles = {
+    marginTop: '-1.5rem',
   };
 
   return (
@@ -58,7 +67,16 @@ const Login: FC = () => {
             />
           )}
           {loginIsEntered && (
-            <Input type="password" label="Password" changeHandler={passwordChangeHandler} />
+            <Input
+              type={passwordIsShown ? 'text' : 'password'}
+              label="Password"
+              changeHandler={passwordChangeHandler}
+            />
+          )}
+          {loginIsEntered && (
+            <Button onClick={clickHandler} noBorder={true} style={noBorderButtonStyles}>
+              {passwordIsShown ? 'Hide' : 'Reveal'} password
+            </Button>
           )}
           <Button style={buttonStyles} disabled={disabled}>
             {!loginIsEntered ? 'Next' : 'Log in'}

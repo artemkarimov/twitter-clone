@@ -28,7 +28,7 @@ const Button: FC<Props> = ({
 }) => {
   const classNames = [
     styles.button,
-    flat ? styles.flat : styles.regular,
+    flat ? styles.flat : noBorder ? '' : styles.regular,
     noBorder ? styles['no-border'] : '',
   ];
   const button = (
