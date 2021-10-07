@@ -19,7 +19,7 @@ const Login: FC = () => {
   useEffect(() => {
     if (login || password) setDisabled(false);
     else setDisabled(true);
-  }, [login]);
+  }, [login, password]);
 
   const passwordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -35,7 +35,9 @@ const Login: FC = () => {
 
   const buttonStyles = {
     width: '32.4rem',
-    marginTop: '17.5rem',
+    marginTop: !loginIsEntered ? '17.5rem' : '20.2rem',
+    backgroundColor: loginIsEntered ? 'black' : '',
+    borderColor: loginIsEntered ? 'black' : '',
   };
 
   return (
