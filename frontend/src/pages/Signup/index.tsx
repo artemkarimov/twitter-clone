@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 import MonthSelect from 'components/UI/Select/Month';
 import DaySelect from 'components/UI/Select/Day';
 import isEmpty from 'helpers/isEmpty';
+import CloseButton from 'components/UI/Button/CloseButton';
 
 const Signup: FC = () => {
   type RegisterOption = 'Email' | 'Phone';
@@ -58,8 +59,14 @@ const Signup: FC = () => {
     width: '100%',
   };
 
+  const closeButtonStyles = {
+    top: '-3.4rem',
+    left: '-1.7rem',
+  };
+
   return (
     <Card>
+      <CloseButton style={closeButtonStyles} />
       <img src={logo} alt="logo" className={styles.logo} />
       <h2>Create your account</h2>
       <form className={styles.form}>

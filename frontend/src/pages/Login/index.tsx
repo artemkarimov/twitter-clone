@@ -3,6 +3,7 @@ import { FC, useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import Input from 'components/UI/Input';
 import Button from 'components/UI/Button';
 import Card from 'components/UI/Card';
+import CloseButton from 'components/UI/Button/CloseButton';
 import logo from 'assets/logo.svg';
 import styles from './styles.module.scss';
 
@@ -49,12 +50,18 @@ const Login: FC = () => {
     marginTop: '-1.5rem',
   };
 
+  const closeButtonStyles = {
+    top: '-1.7rem',
+    left: '-1.7rem',
+  };
+
   return (
     <Card>
+      <CloseButton style={closeButtonStyles} />
       <div className={styles.login}>
         <img src={logo} alt="logo" className={styles.logo} />
         {!loginIsEntered ? (
-          <h1>To get started, first enter your phone, email, or @username</h1>
+          <h2>To get started, first enter your phone, email, or @username</h2>
         ) : (
           <h1>Enter your password</h1>
         )}
