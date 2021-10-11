@@ -1,15 +1,16 @@
 import { FC, useState, useEffect, ChangeEvent } from 'react';
 
+import Routes from 'constants/enums/routes';
 import Card from 'components/UI/Card';
 import Input from 'components/UI/Input';
 import Button from 'components/UI/Button';
+import CloseButton from 'components/UI/Button/CloseButton';
 import YearSelect from 'components/UI/Select/Year';
 import logo from 'assets/logo.svg';
 import styles from './styles.module.scss';
 import MonthSelect from 'components/UI/Select/Month';
 import DaySelect from 'components/UI/Select/Day';
 import isEmpty from 'helpers/isEmpty';
-import CloseButton from 'components/UI/Button/CloseButton';
 
 const Signup: FC = () => {
   type RegisterOption = 'Email' | 'Phone';
@@ -66,7 +67,7 @@ const Signup: FC = () => {
 
   return (
     <Card>
-      <CloseButton style={closeButtonStyles} />
+      <CloseButton style={closeButtonStyles} redirectTo={Routes.DEFAULT} />
       <img src={logo} alt="logo" className={styles.logo} />
       <h2>Create your account</h2>
       <form className={styles.form}>

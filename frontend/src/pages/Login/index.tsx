@@ -1,5 +1,6 @@
 import { FC, useState, useEffect, ChangeEvent, FormEvent } from 'react';
 
+import Routes from 'constants/enums/routes';
 import Input from 'components/UI/Input';
 import Button from 'components/UI/Button';
 import Card from 'components/UI/Card';
@@ -19,7 +20,7 @@ const Login: FC = () => {
   };
 
   useEffect(() => {
-    if (login && !loginIsEntered || password) setDisabled(false);
+    if ((login && !loginIsEntered) || password) setDisabled(false);
     else setDisabled(true);
   }, [login, password]);
 
@@ -57,7 +58,7 @@ const Login: FC = () => {
 
   return (
     <Card>
-      <CloseButton style={closeButtonStyles} />
+      <CloseButton style={closeButtonStyles} redirectTo={Routes.DEFAULT} />
       <div className={styles.login}>
         <img src={logo} alt="logo" className={styles.logo} />
         {!loginIsEntered ? (
