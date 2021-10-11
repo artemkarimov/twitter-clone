@@ -1,10 +1,14 @@
-import { FC } from 'react';
+import { FC, CSSProperties } from 'react';
 
 import styles from './styles.module.scss';
 
-const CloseButton: FC = () => {
+interface Props {
+  style?: CSSProperties;
+}
+
+const CloseButton: FC<Props>= ({ style }) => {
   return (
-    <button className={styles['close_button']}>
+    <button className={styles['close_button']} style={style}>
       <div></div>
       <div></div>
     </button>
