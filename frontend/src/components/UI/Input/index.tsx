@@ -11,11 +11,9 @@ interface Props {
 const Input: FC<Props> = ({ type, label, changeHandler }) => {
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
   const classNames = [styles.input, isEmpty ? '' : styles['not-empty-input']];
-  const [numberOfSymbols, setNumberOfSymbols] = useState<number>(0);
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target?.value) setIsEmpty(false);
     else setIsEmpty(true);
-    setNumberOfSymbols(event.target?.value.split('').length);
   };
   return (
     <div className={classNames.join(' ')}>
