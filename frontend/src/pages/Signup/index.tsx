@@ -71,7 +71,12 @@ const Signup: FC = () => {
       <img src={logo} alt="logo" className={styles.logo} />
       <h2>Create your account</h2>
       <form className={styles.form}>
-        <Input type="text" label="Name" changeHandler={nameChangeHandler} />
+        <Input
+          type="text"
+          label="Name"
+          withNumberOfChars={true}
+          changeHandler={nameChangeHandler}
+        />
         <Input type="text" label={registerOption} changeHandler={loginChangeHandler} />
         <Button noBorder={true} onClick={changeRegisterOption} type="button">
           Use {anotherOption(registerOption).toLowerCase()} instead

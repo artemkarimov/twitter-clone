@@ -15,7 +15,7 @@
     padding-top: 1.2rem;
     padding-left: 0.3rem;
     transition: 0.5s;
-  
+
     &:active,
     &:focus {
       border: 0.13rem solid $dodgerBlueColor;
@@ -29,6 +29,10 @@
       font-size: 0.9rem;
       color: $dodgerBlueColor;
     }
+
+    &:focus ~ p {
+      display: block;
+    }
   }
 
   label {
@@ -39,6 +43,13 @@
     padding-left: 0.4rem;
     pointer-events: none;
     transition: 0.5s;
+  }
+
+  p {
+    position: absolute;
+    top: 1.5rem;
+    right: 0.1rem;
+    display: none;
   }
 }
 
@@ -51,25 +62,3 @@
     }
   }
 }
-
-// .formInput {
-//   width: 100%;
-//   height: 3rem;
-//   margin-top: 0.4rem;
-//   font-size: 1.2rem;
-//   outline: none;
-//   margin-bottom: 1rem;
-//   border: 0.05rem solid $lightGrayColor;
-//   border-radius: 0.25rem;
-
-//   &::placeholder {
-//     font-size: 1rem;
-//     padding: 0.4rem;
-//   }
-
-//   &:active,
-//   &:focus {
-//     border: 0.13rem solid $dodgerBlueColor;
-//     margin-bottom: 0.84rem;
-//   }
-// }

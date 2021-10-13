@@ -5,15 +5,19 @@ import styles from './styles.module.scss';
 interface Props {
   type: string;
   label: string;
+  withNumberOfChars?: boolean;
   changeHandler?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<Props> = ({ type, label, changeHandler }) => {
+const Input: FC<Props> = ({ type, label, withNumberOfChars, changeHandler }) => {
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
   const classNames = [styles.input, isEmpty ? '' : styles['not-empty-input']];
+  const [numberOfSymbols, setNumberOfSymbols] = useState<number>(0);
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target?.value) setIsEmpty(false);
+    const value = event.target?.value;
+    if (value) setIsEmpty(false);
     else setIsEmpty(true);
+    setNumberOfSymbols(value.split('').length);
   };
   return (
     <div className={classNames.join(' ')}>
@@ -25,6 +29,7 @@ const Input: FC<Props> = ({ type, label, changeHandler }) => {
         }}
       />
       <label>{label}</label>
+      {withNumberOfChars && <p>{numberOfSymbols}/50</p>}
     </div>
   );
 };
