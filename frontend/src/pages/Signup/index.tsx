@@ -75,6 +75,7 @@ const Signup: FC = () => {
           type="text"
           label="Name"
           withNumberOfChars={true}
+          autoFocus={true}
           changeHandler={nameChangeHandler}
         />
         <Input type="text" label={registerOption} changeHandler={loginChangeHandler} />

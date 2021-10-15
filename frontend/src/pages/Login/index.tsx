@@ -71,6 +71,7 @@ const Login: FC = () => {
             <Input
               type="text"
               label="Phone, email or username"
+              autoFocus={true}
               changeHandler={loginChangeHandler}
             />
           )}
@@ -78,6 +79,7 @@ const Login: FC = () => {
             <Input
               type={passwordIsShown ? 'text' : 'password'}
               label="Password"
+              autoFocus={true}
               changeHandler={passwordChangeHandler}
             />
           )}

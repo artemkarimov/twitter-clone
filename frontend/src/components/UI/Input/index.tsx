@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, ChangeEvent } from 'react';
+import { FC, useState, ChangeEvent } from 'react';
 
 import styles from './styles.module.scss';
 
@@ -6,10 +6,11 @@ interface Props {
   type: string;
   label: string;
   withNumberOfChars?: boolean;
+  autoFocus?: boolean;
   changeHandler?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<Props> = ({ type, label, withNumberOfChars, changeHandler }) => {
+const Input: FC<Props> = ({ type, label, withNumberOfChars, autoFocus, changeHandler }) => {
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
   const classNames = [styles.input, isEmpty ? '' : styles['not-empty-input']];
   const [numberOfSymbols, setNumberOfSymbols] = useState<number>(0);
@@ -29,6 +30,7 @@ const Input: FC<Props> = ({ type, label, withNumberOfChars, changeHandler }) => 
       <input
         type={type}
         value={inputValue}
+        autoFocus={autoFocus}
         onChange={event => {
           if (changeHandler) changeHandler(event);
           inputHandler(event);
