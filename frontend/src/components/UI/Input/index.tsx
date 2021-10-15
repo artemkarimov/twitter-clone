@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from 'react';
+import { FC, useState, useEffect, ChangeEvent } from 'react';
 
 import styles from './styles.module.scss';
 
@@ -13,12 +13,17 @@ const Input: FC<Props> = ({ type, label, withNumberOfChars, changeHandler }) => 
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
   const classNames = [styles.input, isEmpty ? '' : styles['not-empty-input']];
   const [numberOfSymbols, setNumberOfSymbols] = useState<number>(0);
+  const [exceededLimit, setExceededLimit] = useState<boolean>(false);
   const inputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;
     if (value) setIsEmpty(false);
     else setIsEmpty(true);
-    setNumberOfSymbols(value.split('').length);
+    if (!exceededLimit) setNumberOfSymbols(value.split('').length);
   };
+  useEffect(() => {
+    if (numberOfSymbols >= 50) setExceededLimit(true);
+    else setExceededLimit(false);
+  }, [numberOfSymbols]);
   return (
     <div className={classNames.join(' ')}>
       <input
