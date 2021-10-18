@@ -42,7 +42,7 @@ const Login: FC = () => {
 
   const buttonStyles = {
     width: '32.4rem',
-    marginTop: !loginIsEntered ? '17.5rem' : '18.7rem',
+    marginTop: !loginIsEntered ? '17.5rem' : '18.1rem',
     backgroundColor: loginIsEntered ? 'black' : '',
     borderColor: loginIsEntered ? 'black' : '',
   };
@@ -64,7 +64,7 @@ const Login: FC = () => {
         {!loginIsEntered ? (
           <h2>To get started, first enter your phone, email, or @username</h2>
         ) : (
-          <h1>Enter your password</h1>
+          <h2>Enter your password</h2>
         )}
         <form onSubmit={submitHandler}>
           {!loginIsEntered && (
