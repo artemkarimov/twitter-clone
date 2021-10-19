@@ -45,11 +45,16 @@
     transition: 0.5s;
   }
 
-  p {
+  .number_of_symbols {
     position: absolute;
     top: 1.5rem;
     right: 0.1rem;
     display: none;
+  }
+
+  .p_with_error {
+    margin-top: -0.5rem;
+    color: $redColor;
   }
 }
 
@@ -59,6 +64,21 @@
       top: 0.55rem;
       font-size: 0.9rem;
       color: $suvaGrayColor;
+    }
+  }
+}
+
+.input_with_error {
+  input {
+    border-color: $redColor;
+
+    &:active,
+    &:focus {
+      border-color: $redColor;
+    }
+
+    &:focus ~ label {
+      color: $redColor;
     }
   }
 }

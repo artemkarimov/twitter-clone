@@ -76,6 +76,7 @@ const Signup: FC = () => {
           label="Name"
           withNumberOfChars={true}
           autoFocus={true}
+          errorMessage="What is your name?"
           changeHandler={nameChangeHandler}
         />
         <Input type="text" label={registerOption} changeHandler={loginChangeHandler} />
