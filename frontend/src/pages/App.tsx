@@ -5,6 +5,7 @@ import Landing from './Landing';
 import Login from './Login';
 import Signup from './Signup';
 import Routes from 'constants/enums/routes';
+import Home from './Home';
 
 const App: FC = () => {
   return (
@@ -18,6 +19,9 @@ const App: FC = () => {
         </Route>
         <Route path={Routes.SIGNUP}>
           <Signup />
+        </Route>
+        <Route path={Routes.HOME}>
+          <Home />
         </Route>
       </Switch>
     </>
